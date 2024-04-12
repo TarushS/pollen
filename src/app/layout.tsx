@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 import { Container, HStack } from "@chakra-ui/react";
-import { Providers } from './lib/providers'
+import { Providers, NextAuthProvider } from './lib/providers'
 import NavBar from "./_components/NavBar";
 import TopBar from "./_components/TopBar";
 
@@ -26,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
+        <NextAuthProvider>
           <Providers>
             <Container minW={"full"} bg="#f8f4fc" height={"100vh"} p={0} overflow="auto">
               <TopBar />
@@ -35,6 +36,7 @@ export default function RootLayout({
                 </HStack>
             </Container>
           </Providers>
+        </NextAuthProvider>
       </body>
     </html>
   );
