@@ -6,6 +6,7 @@ import TopBar from "./_components/TopBar";
 
 
 import { Inter } from "next/font/google";
+import GridLines from "./_components/GridlLines";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={`font-sans ${inter.variable}`}>
         <NextAuthProvider>
           <Providers>
+            <GridLines />
             <Container minW={"full"} bg="#f8f4fc" height={"100vh"} p={0} overflow="auto">
               <TopBar />
               <HStack className="layout-hstack" maxHeight={'full'} width={'full'} alignItems={"flex-start"} pt={10}>

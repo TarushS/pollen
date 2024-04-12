@@ -12,7 +12,7 @@ const HomeContent = () => {
             Pollen is a web application that leverages Hive <br /> blockchain to incentivize eco-friendly <br /> practices and promote sustainable businesses. 
             </Text>
             <Text fontSize={'xl'} w={'100%'}>
-            <Link color={'#38A3A5'} textDecoration={'underline'}>Click here</Link> to see the sustainable actions you can do to earn Sustainable Hive Tokens(SHT) <br /> 
+            <Link color={'#38A3A5'} textDecoration={'underline'}>Click here</Link> to see the sustainable actions you can do to earn Bee Tokens(SHT) <br /> 
             </Text>
             <Button bgColor={'#38A3A5'} color={'white'} colorScheme={'brand'} borderRadius={'xl'}>
                 Get Started
