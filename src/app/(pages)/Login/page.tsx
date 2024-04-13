@@ -1,7 +1,7 @@
 'use client'
 import { Button, FormControl, Input, VStack } from '@chakra-ui/react'
 import React, { useState } from 'react'
-
+import CookieChecker from '../../_components/AuthInOut'
 
 
 const HiveKey = () => {
@@ -13,11 +13,14 @@ const HiveKey = () => {
     const my_keychain = window.hive_keychain;
     my_keychain.requestSignBuffer(account, message, 'Posting', (response) => {
       if (response.success) {
-        console.log("hello");
+        var sesh = "session";
+        var cookieval = account;
+        document.cookie = sesh + "=" + cookieval + "; path=/";
+        window.location.reload();
       }
     });
-    
   }
+
 
   return (
     <>
@@ -54,7 +57,8 @@ const HiveKey = () => {
           onClick={onSubmit}
         ></Button>
         </VStack>
-    </FormControl>
+        </FormControl>
+
     </>
   )
 }
