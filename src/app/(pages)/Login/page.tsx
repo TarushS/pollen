@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import CookieChecker from '../../_components/AuthInOut'
 
 declare const window: any;
+declare const hive_keychain: any;
 
 const HiveKey = () => {
   const [account, setAccount] = useState('');
