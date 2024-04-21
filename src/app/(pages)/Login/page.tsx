@@ -3,8 +3,12 @@ import { Button, FormControl, Heading, Input, VStack } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import CookieChecker from '../../_components/AuthInOut'
 
-declare const window: any;
-declare const hive_keychain: any;
+declare global {
+  interface Window {
+    hive_keychain: any;
+  }
+}
+
 
 const HiveKey = () => {
   const [account, setAccount] = useState('');
@@ -12,15 +16,17 @@ const HiveKey = () => {
 
 
   const onSubmit = () => {
-    const my_keychain = window.hive_keychain;
-    my_keychain.requestSignBuffer(account, 'pollen sign-in with Hive Keychain', 'Posting', (response:any) => {
-      if (response.success) {
-        var sesh = "session";
-        var cookieval = account;
-        document.cookie = sesh + "=" + cookieval + "; path=/";
-        window.location.reload();
-      }
-    });
+    if(window.hive_keychain) {
+      const my_keychain = window.hive_keychain;
+      my_keychain.requestSignBuffer(account, 'pollen sign-in with Hive Keychain', 'Posting', (response:any) => {
+        if (response.success) {
+          var sesh = "session";
+          var cookieval = account;
+          document.cookie = sesh + "=" + cookieval + "; path=/";
+          window.location.reload();
+        }
+      });
+    }
   }
 
 
